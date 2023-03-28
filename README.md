@@ -1,3 +1,28 @@
+本仓库提供orbslam3的rgbd稠密建图(pcl)
+
+## 运行
+```
+# 参照https://github.com/lturing/ORB_SLAM3_modified 安装pcl等库
+git clone https://github.com/lturing/ORB_SLAM3_RGBD_PCL
+cd ORB_SLAM3_RGBD_PCL
+chmod +x ./build.sh 
+
+# 数据集 
+# https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download
+
+# 生成associate.txt(示例)
+python evaluation/associate.py /home/spurs/dataset/rgbd_dataset_freiburg2_large_with_loop/rgb.txt /home/spurs/dataset/rgbd_dataset_freiburg2_large_with_loop/depth.txt >> associate.txt
+
+# 参照run_bash.txt 
+./Examples/RGB-D/rgbd_tum ./Vocabulary/ORBvoc.txt ./Examples/RGB-D/TUM3.yaml /home/spurs/dataset/rgbd_dataset_freiburg3_long_office_household /home/spurs/dataset/rgbd_dataset_freiburg3_long_office_household/assocaite.txt
+
+
+```
+
+<br>
+<details>
+  <summary><strong>offical readme</strong>(click to expand)</summary>
+
 # ORB-SLAM3
 
 ### V1.0, December 22th, 2021
@@ -233,3 +258,5 @@ A flag in `include\Config.h` activates time measurements. It is necessary to unc
 
 # 9. Calibration
 You can find a tutorial for visual-inertial calibration and a detailed description of the contents of valid configuration files at  `Calibration_Tutorial.pdf`
+
+</details>
